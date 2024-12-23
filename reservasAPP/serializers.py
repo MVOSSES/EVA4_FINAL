@@ -4,7 +4,7 @@ from reservasAPP.models import Reservas
 class ReservasSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reservas
-        fields = ['id', 'nombre', 'fecha_reserva', 'hora', 'cantidad_personas', 'observacion', 'estado']
+        fields = ['id', 'nombre', 'telefono' ,'fecha_reserva', 'hora', 'cantidad_personas', 'observacion', 'estado']
 
     def validate_cantidad_personas(self, value):
         if value <= 0:
