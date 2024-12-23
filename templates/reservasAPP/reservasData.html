@@ -1,0 +1,98 @@
+<!--Extender block base-->
+{% extends 'base/base.html' %}
+
+{% block title %}Reservas{% endblock %}
+
+{% block content %}
+<!-- Cabecera de página -->
+<section class="bg-color2 text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Reservas</h1>
+        <p class="lead">Revisa y gestiona las reservas de nuestros clientes.</p>
+        <a href="{% url 'reservasCrear' %}" class="btn btn-color4">Crea una RESERVA</a>
+    </div>
+</section>
+
+<!-- Tabla de reservas-->
+<div class="container my-5">
+
+    <table id="reservasTabla" class="table" >
+        <thead>
+            <tr class="table-success">
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Ctd Personas</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Observación</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if reservas %} <!-- Si existe algun empleado -->
+                {% for rsv in reservas %}
+                <tr class="table-light">
+                    <th scope="row">{{rsv.id}}</th>
+                    <td>{{rsv.nombre}}</td>
+                    <td>{{rsv.telefono}}</td>
+                    <td>{{rsv.fecha_reserva}}</td>
+                    <td>{{rsv.hora}}</td>
+                    <td>{{rsv.cantidad_personas}}</td>
+                    <td>{{rsv.estado}}</td>
+                    <td>{{rsv.observacion}}</td>
+                    <td>
+                        <a href="{% url 'reservasEditar' rsv.id %}" class="btn btn-color5 "><i class="bi bi-pencil"></i></a>
+                        <button type="button" class="btn btn-color4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <!--Modal de confirmación eliminar productos-->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Producto</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ¿Está seguro de que desea eliminar el producto "{{pro.nombre}}"?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-color5" data-bs-dismiss="modal">Cancelar</button>
+                            <a href="{% url 'reservasEliminar' rsv.id %}" class="btn btn-color4">Eliminar</a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                <!--Fin modal-->
+                
+                {% endfor %}
+            {% else %} 
+            <tr>
+                <td colspan="6" class="text-center">No hay RESERVAS registradas</td>
+            </tr>
+            {% endif %}
+        </tbody>
+        <tfoot>
+            <tr class="table-success">
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Ctd Personas</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Observación</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+</div>
+
+{% endblock %}

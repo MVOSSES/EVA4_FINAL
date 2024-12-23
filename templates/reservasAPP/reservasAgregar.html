@@ -1,0 +1,25 @@
+<!--Extender block base-->
+{% extends 'base/base.html' %}
+
+{% block title %}nuevaReserva{% endblock %}
+
+{% block content %}
+
+<section class="bg-color2 text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Crea una RESERVA</h1>
+        <p class="lead">Completa el formulario para agregar una reserva</p>
+        <a href="{% url 'verReservas' %}" class="btn btn-color4">Cancelar y volver a RESERVAS</a>
+    </div>
+</section>
+
+<form method="POST" class="col-8 offset-2 border-3 border border-info-secondary rounded p-5">
+    {{ form.as_p}}
+    {% csrf_token %}
+    <div class="d-grid">
+    <input type="submit" class="btn btn-color4" value="Enviar Datos">
+    </div>
+</form>
+
+
+{% endblock %}
