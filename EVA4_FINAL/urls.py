@@ -26,7 +26,7 @@ urlpatterns = [
     path('reservasAPI/<int:pk>/', reservas_detail,name='reservasAPI'),
     path('verReservas/',reservasData,name="verReservas"),
     path('reservasCrear/',reservasAgregar,name="reservasCrear"),
-    path('reservasEditar/<int:id>',reservasEditar,name="reservasEditar"),
-    path('reservasEliminar/<int:id>',reservasEliminar,name="reservasEliminar"),
+    path('reservasEditar/<int:id>/',reservasEditar,name="reservasEditar"),
+    path('reservasEliminar/<int:id>/',reservasEliminar,name="reservasEliminar"),
     path('',TemplateView.as_view(template_name="index.html"),name="index"),
 ]

@@ -44,31 +44,33 @@
                     <td>{{rsv.observacion}}</td>
                     <td>
                         <a href="{% url 'reservasEditar' rsv.id %}" class="btn btn-color5 "><i class="bi bi-pencil"></i></a>
-                        <button type="button" class="btn btn-color4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        
+                        <button type="button" class="btn btn-color4" data-bs-toggle="modal" data-bs-target="#exampleModal{{ rsv.id }}">
                             <i class="bi bi-trash"></i>
                         </button>
                     </td>
                 </tr>
 
-                <!--Modal de confirmación eliminar productos-->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal{{ rsv.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
                         <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Producto</h1>
+                            <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Eliminar Reserva</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            ¿Está seguro de que desea eliminar el producto "{{pro.nombre}}"?
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-color5" data-bs-dismiss="modal">Cancelar</button>
-                            <a href="{% url 'reservasEliminar' rsv.id %}" class="btn btn-color4">Eliminar</a>
+                            </div>
+                            <div class="modal-body">
+                            ¿Seguro que desea eliminar la reserva realizada por {{ rsv.nombre }}?
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-color5" data-bs-dismiss="modal">(Close/Cancelar)</button>
+                        <!--Aquí recomiendo reemplazar el botón "Save changes" por la etiqueta <a> que se había creado para eliminar al empleado-->
+                            <a href="{% url 'reservasEliminar' rsv.id %}" class="btn btn-color4">Eliminar</a> <!--a este botón me refiero-->
+                            </div>
                         </div>
                         </div>
                     </div>
-                    </div>
-                <!--Fin modal-->
                 
                 {% endfor %}
             {% else %} 

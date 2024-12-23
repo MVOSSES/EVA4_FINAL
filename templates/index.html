@@ -6,52 +6,97 @@
 <!-- Cabecera de página -->
 <section class="bg-color2 text-white text-center py-5">
     <div class="container">
-        <h1 class="display-4">Bienvenidos a Restaurant Marcelo Osses</h1>
-        <p class="lead">La mejor experiencia gastronómica te espera.</p>
-        <p class="lead">Desarrollado por Marcelo Vicente Osses Meza.</p>
-        <a href="#reservas" class="btn btn-color4">Reserva tu mesa</a>
+        <h1 class="display-4">
+            <i class="bi bi-restaurant"></i> Bienvenidos a Restaurant Marcelo Osses
+        </h1>
+        <p class="lead">
+            <i class="bi bi-star-fill"></i> La mejor experiencia gastronómica te espera.
+        </p>
+        <p class="lead">
+            <i class="bi bi-person-circle"></i> Desarrollado por Marcelo Vicente Osses Meza.
+        </p>
+        <a href="{% url 'reservasCrear' %}" class="btn btn-color4">
+            <i class="bi bi-calendar-check"></i> Registra una Reserva
+        </a>
     </div>
 </section>
 
 <!-- Sección nosotros -->
 <section id="nosotros" class="py-5">
     <div class="container">
-        <h2 class="text-center text-color1">¿Quiénes somos?</h2>
-        <p class="text-center">Somos un restaurante comprometido con la excelencia y la calidad en cada plato. Desde nuestros humildes comienzos, nos hemos dedicado a ofrecer una experiencia culinaria inolvidable, combinando ingredientes de alta calidad con técnicas tradicionales y contemporáneas. Nuestro equipo está formado por profesionales apasionados, que trabajan para brindarte no solo una comida, sino también un lugar donde crear momentos especiales con tus seres queridos. ¡Ven a conocernos y descubre por qué somos el corazón de la buena cocina en la región!</p>
+        <h2 class="text-center text-color1">
+            <i class="bi bi-info-circle"></i> ¿Quiénes somos?
+        </h2>
+        <p class="text-center">
+            Somos un restaurante comprometido con la excelencia y la calidad en cada plato. Desde nuestros humildes comienzos, nos hemos dedicado a ofrecer una experiencia culinaria inolvidable, combinando ingredientes de alta calidad con técnicas tradicionales y contemporáneas. Nuestro equipo está formado por profesionales apasionados, que trabajan para brindarte no solo una comida, sino también un lugar donde crear momentos especiales con tus seres queridos. ¡Ven a conocernos y descubre por qué somos el corazón de la buena cocina en la región!
+        </p>
     </div>
 </section>
 
-<!-- Seccion reservas -->
-<section id="reservas" class="py-5 bg-light">
+<!-- Sección servicios -->
+<section class="services-section align-items-center py-5" id="nservicios">
     <div class="container">
-        <h2 class="text-center text-color1">Reservas</h2>
-        <p class="text-center">Gestiona tus reservas de manera rápida y fácil.</p>
-        <div class="text-center">
-            <a href="{% url 'verReservas' %}" class="btn btn-color4">Ir a Reservas</a>
-        </div>
-    </div>
-</section>
-
-<!-- Sección Admin -->
-<section id="admin" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="text-center text-color1">Administrador</h2>
-        <p class="text-center">¿Eres el encargado de administrar reservas?</p>
-        <p class="text-center">Ingresa aqui con tu cuenta de administrador.</p>
-        <div class="text-center">
-            <a href="{% url 'admin:index' %}" class="btn btn-color4">Ir a Admin</a>
-        </div>
-    </div>
-</section>
-
-<!-- Sección redirigir a API -->
-<section id="api" class="py-5 bg-light">
-    <div class="container">
-        <h2 class="text-center text-color1">API Reservas</h2>
-        <p class="text-center">Accede a la API pública de reservas</p>
-        <p class="text-center">Consume esta api para agregar, editar y eliminar reservas en las nuevas apps de la empresa</p>
-        <div class="text-center">
-            <a href="{% url 'reservasAPI' %}" class="btn btn-color4">Ir a API Reservas</a>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="container">
+                        <h2 class="text-center text-color1">
+                            <i class="bi bi-calendar2-event"></i> Reservas
+                        </h2>
+                        <p class="text-center">
+                            <i class="bi bi-calendar4"></i>Gestiona tus reservas de manera rápida y fácil.
+                        </p>
+                        <p class="text-center">
+                            Revisa, Registra, Edita y Elimina Reservas.
+                        </p>
+                        <div class="text-center">
+                            <a href="{% url 'verReservas' %}" class="btn btn-color4">
+                                <i class="bi bi-box-arrow-right"></i> Ir a Reservas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="container">
+                        <h2 class="text-center text-color1">
+                            <i class="bi bi-person-workspace"></i> Administrador
+                        </h2>
+                        <p class="text-center">
+                            <i class="bi bi-shield-lock"></i> ¿Eres el encargado de administrar reservas?
+                        </p>
+                        <p class="text-center">
+                            Ingresa aquí con tu cuenta de administrador.
+                        </p>
+                        <div class="text-center">
+                            <a href="{% url 'admin:index' %}" class="btn btn-color4">
+                                <i class="bi bi-person-fill-lock"></i> Ir a Admin
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="container">
+                        <h2 class="text-center text-color1">
+                            <i class="bi bi-cloud-arrow-down"></i> API Reservas
+                        </h2>
+                        <p class="text-center">
+                            <i class="bi bi-hammer"></i> Accede a la API pública de reservas
+                        </p>
+                        <p class="text-center">
+                            Consume esta API para agregar, editar y eliminar reservas en las nuevas apps de la empresa.
+                        </p>
+                        <div class="text-center">
+                            <a href="{% url 'reservasAPI' %}" class="btn btn-color4">
+                                <i class="bi bi-box-arrow-up-right"></i> Ir a API Reservas
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -59,8 +104,14 @@
 <!-- Sección Contacto -->
 <section id="contacto" class="py-5">
     <div class="container">
-        <h2 class="text-center text-color1">Contáctanos</h2>
-        <p class="text-center">Correo: mvossesmeza@gmail.com | Teléfono: +56 9 3082 3716</p>
+        <h2 class="text-center text-color1">
+            <i class="bi bi-envelope"></i> Contáctanos
+        </h2>
+        <p class="text-center">
+            <i class="bi bi-envelope-fill"></i> Correo: mvossesmeza@gmail.com | 
+            <i class="bi bi-telephone-fill"></i> Teléfono: +56 9 3082 3716
+        </p>
     </div>
-</section> 
+</section>
+
 {% endblock %}
