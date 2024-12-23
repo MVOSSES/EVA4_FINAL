@@ -4,5 +4,11 @@ from reservasAPP.models import Reservas
 class ReservasSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reservas
-        #mostrar todos los datos menos el id y telefono
         fields = ['id', 'nombre', 'fecha_reserva', 'hora', 'cantidad_personas', 'observacion', 'estado']
+
+    def validate_cantidad_personas(self, value):
+        if value <= 0:
+            raise serializers.ValidationError("Debe ser mayor a 0.")
+        if value >= 16:
+            raise serializers.ValidationError("Debe ser menor a 16.")
+        return value
