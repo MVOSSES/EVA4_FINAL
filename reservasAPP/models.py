@@ -22,6 +22,8 @@ class Reservas(models.Model):
     observacion = models.CharField(max_length=200, null=True, blank=True)
 
     def clean(self):
+        if self.cantidad_personas is None:
+            raise ValidationError({'cantidad_personas': 'Este campo es obligatorio.'})
         if self.cantidad_personas <= 0:
             raise ValidationError({'cantidad_personas': 'Debe ser mayor a 0.'})
         if self.cantidad_personas >= 16:
