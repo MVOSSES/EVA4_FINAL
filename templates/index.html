@@ -33,6 +33,34 @@
     </div>
 </section>
 
+<!--Agregar un video de youtube
+
+    Button trigger modal
+    <div class = "container py-3 text-center" >
+        <button type="button" class="btn btn-color4" data-bs-toggle="modal" data-bs-target="#notMyBaby">
+            Te invitamos a escuchar la siguiente canción 🎶🎵
+        </button>
+        
+        Modal
+        <div class="modal fade" id="notMyBaby" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Not My Baby - Alvvays</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="100%" height="250" src="https://www.youtube.com/embed/XQtrhodlY68" title="Alvvays - Not My Baby (Live on KEXP)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-color4" data-bs-dismiss="modal">¡Que temazo lptm!</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+Fin Agregar un video de youtube-->
+
 <!-- Sección servicios -->
 <section class="services-section align-items-center py-5" id="nservicios">
     <div class="container">
@@ -70,7 +98,7 @@
                             Ingresa aquí con tu cuenta de administrador.
                         </p>
                         <div class="text-center">
-                            <a href="{% url 'admin:index' %}" class="btn btn-color4">
+                            <a target="_blank" href="{% url 'admin:index' %}" class="btn btn-color4">
                                 <i class="bi bi-person-fill-lock"></i> Ir a Admin
                             </a>
                         </div>
@@ -90,7 +118,7 @@
                             Consume esta API para agregar, editar y eliminar reservas en las nuevas apps de la empresa.
                         </p>
                         <div class="text-center">
-                            <a href="{% url 'reservasAPI' %}" class="btn btn-color4">
+                            <a target="_blank" href="{% url 'reservasAPI' %}" class="btn btn-color4">
                                 <i class="bi bi-box-arrow-up-right"></i> Ir a API Reservas
                             </a>
                         </div>

@@ -37,15 +37,41 @@
                         <a class="nav-link text-color3" href="{% url 'verReservas' %}">Reservas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-color3" href="{% url 'admin:index' %}">Administrador</a>
+                        <a target="_blank" class="nav-link text-color3" href="{% url 'admin:index' %}">Administrador</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-color3" href="{% url 'reservasAPI' %}">API</a>
+                        <a target="_blank" class="nav-link text-color3" href="{% url 'reservasAPI' %}">API</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+<!-- Musica experimento -->
+
+<!-- Button trigger modal -->
+<div class = "container py-3 text-center" >
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Lo-fi playlist</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="250" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="lofi hip hop radio 📚 beats to relax/study to" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-color4" data-bs-dismiss="modal">¡¡Gracias!!</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- Fin Agregar un video de youtube-->
+
+<!-- Fin de musica-->
 
         {% block content %}Contenido Base{% endblock %}
 
