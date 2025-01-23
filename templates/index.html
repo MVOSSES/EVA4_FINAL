@@ -129,6 +129,67 @@ Fin Agregar un video de youtube-->
     </div>
 </section>
 
+<!-- Sección Prueba la api -->
+<div class="container py-5">
+    <div class="row g-4 justify-content-center">
+        <div class="text-center text-color1">
+            <h2>
+                <i class="bi bi-terminal"></i>
+                Prueba la api
+            </h2>
+        </div>
+        <div class="text-center">
+            <p>
+                <i class="bi bi-list-ol text-color3"></i>
+                Inserta un numero entero correspondiente al id de la reserva que quieras buscar.
+            </p>
+            <p>
+                <i class="bi bi-braces text-color3"></i>
+                Conoce el formato JSON en que te entregaremos la información de la reserva.
+            </p>
+        </div>
+        <div class="row justify-content-center">
+            <section class="col-md-6 col-lg-4 services-section align-items-center py-5">
+                <div class="input-group">
+                    <span class="input-group-text">/reservasAPI/</span>
+                    <input type="text" id="endpoint" class="form-control text-color3" placeholder="Introduce el ID (ej: 1/)">
+                    <p>*Puedes dejar el campo vacío para obtener la información de todas las reservas.</p>
+                </div>
+            </section>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-lg-2">
+                <button class="btn btn-color4 w-100" onclick="testAPI()">Submit</button>
+            </div>
+        </div>
+
+            <h3 class="text-center text-color1">Response:</h3>
+            <pre id="response" class="text-center"></pre>
+        
+    </div>
+</div>
+
+    <!---- Script para consumir la api e interpretar los resultados-->
+    <script>
+        function testAPI() {
+            const endpoint = document.getElementById("endpoint").value;
+            const baseURL = "http://127.0.0.1:8000/reservasAPI/";
+            const url = baseURL + endpoint;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("response").textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    document.getElementById("response").textContent = "Error: " + error;
+                });
+        }
+    </script>
+
+<!-- Fin sección prueba la api-->
+
 <!-- Sección Contacto -->
 <section id="contacto" class="py-5">
     <div class="container">
